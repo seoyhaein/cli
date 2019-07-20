@@ -82,6 +82,10 @@ func getTokenHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	username := r.PostForm.Get("username")
 	password := r.PostForm.Get("password")*/
+
+	//TODO : 19-07-20 password should be crpyto and then will be matched
+	// bcrypt.CompareHashAndPassWord(password,[]byte(expectPassword))
+	// see https://github.com/golang/crypto/blob/master/bcrypt/bcrypt.go#L99
 	username := string("seoy")
 	password := string("father")
 
