@@ -7,7 +7,8 @@ import (
 )
 
 var GITHUB_TOKEN = os.Getenv("GITHUB_TOKEN")
-var requestOptions = &grequests.RequestOptions{Auth: []string{GITHUB_TOKEN, "x-oauth-basic"}}
+var requestOptions = &grequests.RequestOptions{
+	Auth: []string{GITHUB_TOKEN, "x-oauth-basic"}}
 
 type Repo struct {
 	ID       int    `json:"id"`
@@ -37,7 +38,7 @@ func getStats(url string) *grequests.Response {
 func main() {
 	checkTokenEmpty()
 	var repos []Repo
-	reposUrl := "https://api.github.com/users/torvalds/repos"
+	reposUrl := "https://api.github.com/users/seoyhaein/repos"
 	resp := getStats(reposUrl)
 	resp.JSON(&repos)
 	log.Println(repos)
